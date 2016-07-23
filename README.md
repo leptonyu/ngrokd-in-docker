@@ -1,5 +1,5 @@
 Ngrok in docker
-=== 
+===
 
 Docker compose config
 ```
@@ -32,11 +32,11 @@ server {
     listen 80;
     include /etc/nginx/ssl.conf;
     server_name .ngrok.icymint.me; // replace with your own domain
-    ssl_certificate     /data/certs/ngrok.crt;
-    ssl_certificate_key /data/certs/ngrok.key;
+    ssl_certificate     /etc/letsencrypt/live/ngrok.icymint.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ngrok.icymint.me/privkey.pem;
     location / {
         proxy_set_header    X-Real-IP $remote_addr;
-        proxy_set_header    Host $http_host; 
+        proxy_set_header    Host $http_host;
         proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_pass      $scheme://localhost:$proxy_port; // replace with ngrokd docker inner ip or localhost
     }
