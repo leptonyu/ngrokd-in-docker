@@ -1,2 +1,4 @@
+bin
+root.crt.*
 ngrok
 .DS_Store
