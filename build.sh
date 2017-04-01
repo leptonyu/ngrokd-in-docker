@@ -65,10 +65,10 @@ RUN chmod +x make.sh \
       && upx --lzma --best main \
   ; fi \
  && echo "FROM scratch"            > Dockerfile \
- && echo "ADD main snakeoil.* /"       >> Dockerfile \
- && echo "ENTRYPOINT [\"/main\",\"-log-level=WARNING\",\"-domain=$DOMAIN\",\"-tlsCrt=/snakeoil.crt\",\"-tlsKey=/snakeoil.key\"]" >> Dockerfile
+ && echo "ADD main /"       >> Dockerfile \
+ && echo "ENTRYPOINT [\"/main\"]" >> Dockerfile
 
-CMD tar -cf - snakeoil.crt snakeoil.key main Dockerfile
+CMD tar -cf - main Dockerfile
 EOF
 
 cat "$FILE"
