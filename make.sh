@@ -1,4 +1,4 @@
-## FROM golang:alpine
+## FROM golang:1.7-alpine
 
 set -ex \
 && export DIR="$PWD" \
