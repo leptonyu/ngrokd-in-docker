@@ -28,7 +28,7 @@ if [ -z "$FROM" ]; then
 fi
 
 NAME=`basename "$ROOT"`
-LABEL=icymint/$NAME
+LABEL=icymint/$NAME:`date +%Y%m%d`
 if [ -z "$DOMAIN" ]; then
   DOMAIN=ngrok.icymint.me
 fi

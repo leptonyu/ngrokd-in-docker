@@ -21,5 +21,6 @@ ls root.crt.* | while read line; do
    cd "$DIR/ngrok" && CGO_ENABLED=0 make release-client && mv bin/ngrok "$DIR/bin/$name/ngrok"
    cd "$DIR/ngrok" && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 make release-client && mv bin/linux_amd64 "$DIR/bin/$name/"
    cd "$DIR/ngrok" && CGO_ENABLED=0 GOOS=windows GOARCH=amd64 make release-client && mv bin/windows_amd64 "$DIR/bin/$name/"
+   cd "$DIR/ngrok" && CGO_ENABLED=0 GOOS=linux GOARCH=arm make release-client && mv bin/linux_arm "$DIR/bin/$name/"
    cd "$DIR"
 done
